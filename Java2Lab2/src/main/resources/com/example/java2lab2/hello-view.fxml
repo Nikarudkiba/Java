@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java2lab2.HelloController">
+    <Label layoutX="93.0" layoutY="41.0" text="Student Information" textFill="#2d88a1">
+      <font>
+         <Font name="System Bold" size="21.0" />
+      </font></Label>
+        <Label layoutX="40.0" layoutY="100.0" text="ID" />
+        <Label layoutX="40.0" layoutY="120.0" text="First Name" />
+        <Label layoutX="40.0" layoutY="140.0" text="Last Name" />
+        <Label layoutX="40.0" layoutY="160.0" text="Email" />
+        <Label layoutX="40.0" layoutY="180.0" text="Gpa" />
+        <TextField layoutX="120" layoutY="100" text="ID" />
+        <TextField layoutX="120" layoutY="120" text="First Name" />
+        <TextField layoutX="120" layoutY="140" text="Last Name" />
+        <TextField layoutX="120" layoutY="160" text="Email" />
+        <TextField layoutX="120" layoutY="180" text="Gpa" />
+
+        <ButtonBar layoutX="34.0" layoutY="215.0" prefHeight="40.0" prefWidth="200.0">
+                <buttons>
+                        <Button mnemonicParsing="false" text="Find" />
+                        <Button mnemonicParsing="false" text="Insert" />
+                        <Button mnemonicParsing="false" text="Delete" />
+                        <Button mnemonicParsing="false" text="Update" />
+                        <Button fx:id="Exit" mnemonicParsing="false" onAction="#logout" text="Exit" />
+                </buttons>
+        </ButtonBar>
+</AnchorPane>

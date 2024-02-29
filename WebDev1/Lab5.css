@@ -1,0 +1,114 @@
+header{
+    background-image: url("SmallHeaderImg.png");
+    width: 100%;
+    height:50vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+body{
+    background-color: royalblue;
+}
+
+.column{
+    float: left;
+    width: 33%;
+}
+
+.row:after{
+content: "";
+display: table;
+clear: both;
+
+}
+
+#left{
+    background-color: teal;
+    text-align: center;
+    }
+    #left ul{
+        list-style-type: none;
+        margin: 0%;
+        padding: 0%;
+    }
+    #left li a{
+        display: block;
+        color:orange ;
+        text-align: center;
+        text-decoration: none;
+        padding: 14px 16px;
+        border: 5px;
+        border-color: white;
+        border-style: solid;
+    }
+    #left li a:hover{
+        background-color:red;
+    }
+
+.RightContainer{
+    background-color: teal;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+
+}
+.section{
+    height: 25vh;
+   
+    scroll-snap-align: start;
+}
+.section:nth-child(1){
+    background-image: url("HungryKids.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+
+}
+.section:nth-child(3){
+    background-image: url("Feed-the-homeless.jpg");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+
+main{
+    height: 55vh;
+    background-color:pink;
+    background-image: url("Baking.jpg");
+    background-size: contain;
+    background-position: 0px 180px;
+    background-repeat: no-repeat;
+    margin: auto;
+    text-align: center;
+}
+
+@media screen and (min-width:600px) {
+    header{background-image: url("HeaderImg.webp");
+        width: 100%;
+        height: 500px;
+        background-size:cover;
+        background-repeat: no-repeat;}
+}
+@media screen and (min-width:900px) {
+    header{background-image: url("HeaderImg.webp");
+        width: 100%;
+        height: 500px;
+        background-size:contain;
+        background-position: center;
+        background-repeat: no-repeat;}
+}
+@media screen and (max-width:600px) {
+    .column{
+        width: 100%;
+    }
+    main{
+        background-position: 0px 180px;
+        background-size: 100vh;
+        color:darkred;
+        height:100vh ;
+    }   
+ .section{
+    height:70vh;
+ }   
+}

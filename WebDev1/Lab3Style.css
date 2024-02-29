@@ -1,0 +1,80 @@
+#NavBar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #d64161;
+}
+
+#NavBar li {
+  float: left;
+}
+
+#NavBar li a {
+  display: block;
+  color: #ff7b25;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#NavBar li a:hover {
+  background-color: grey;
+}
+
+.container{
+scroll-snap-type: y mandatory;
+overflow-y: scroll;
+height: 100vh;
+}
+.section{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  scroll-snap-align: start;
+}
+.section:nth-child(1){
+  /*Facebook*/
+  background-image: url("https://www.cnm.edu/depts/mco/marketing/images/facebook-logo.png/@@images/da657253-c9ec-4913-85a8-ddf44a7a6251.png");
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+  width: 100%;
+}
+.section:nth-child(3){
+  background-image: url("https://1000logos.net/wp-content/uploads/2017/08/Snapchat-logo-700x394.png");
+  /*Snapchat*/
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.section:nth-child(5){
+  background-image: url("https://scontent-atl3-2.xx.fbcdn.net/v/t39.8562-6/148701539_3724512380920015_7768163355512350905_n.png?_nc_cat=110&ccb=1-7&_nc_sid=6825c5&_nc_ohc=spzP7Dp01KEAX98YrUD&tn=TuiOtJQNBzWJW77U&_nc_ht=scontent-atl3-2.xx&oh=00_AT8J_gbkT5GRUqBNH7SRBaQfYSvhw7bPHLB0TfceUgcmww&oe=632DC94D");
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+  width: 100%;
+}
+.section:nth-child(7){
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_Logo_%282013-2017%29.svg/2560px-YouTube_Logo_%282013-2017%29.svg.png");
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+  width: 100%;
+}
+.section:nth-child(9){
+  background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/2560px-TikTok_logo.svg.png");
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+  width: 100%;
+}
+/*
+*/

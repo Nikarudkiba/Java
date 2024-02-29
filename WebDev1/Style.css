@@ -1,0 +1,24 @@
+
+#NavBar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #d64161;
+}
+
+#NavBar li {
+  float: left;
+}
+
+#NavBar li a {
+  display: block;
+  color: #ff7b25;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+     
+#NavBar li a:hover {
+  background-color: grey;
+}
