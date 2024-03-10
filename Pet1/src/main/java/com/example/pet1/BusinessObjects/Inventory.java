@@ -1,5 +1,5 @@
 
-package com.example.pet1;
+package com.example.pet1.BusinessObjects;
 import java.sql.*;
 /*****************************
  *  Advanced System Projects 

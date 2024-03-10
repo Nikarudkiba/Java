@@ -19,18 +19,15 @@ public class Customer {
             
             
             public Customer() {
-                
                 custID = 0;
                 passwd = "";
                 firstName = "";
                 lastName = "";
                 email = "";
                 address = "";
-                
             }
             
             public Customer(int id, String pswd, String fName, String lName, String em, String addy ) {
-                
                 custID = id;
                 passwd = pswd;
                 firstName = fName;
@@ -38,11 +35,7 @@ public class Customer {
                 email = em;
                 address = addy;
             }
-            
-        
-            
-            
-            
+
             public void setcustID(int id) {custID = id;}
             public int getcustID() {return custID;}
             
@@ -61,16 +54,14 @@ public class Customer {
             public void setaddress(String addy) {address = addy;}
             public String getaddress() {return address;}
             
-            
-            
-            
+
            //Starting here are the methods to access, update, delete and/or Insert data to Database
-           
-            
-            public void SelectDB(int id) {
+
+            public void SelectDB(int id)
+            {
                 custID = id;
-                
-                try {
+                try
+                {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
                     c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");
@@ -86,14 +77,13 @@ public class Customer {
 		
                 
                      c1.close();
-            }       
+                     }
                 catch(Exception se) {
-                    System.out.println(se);
-			}
-                }    
+                    System.out.println(se);}
+            }
             
-            public void insertDB(int id, String pswd, String fName, String lName, String em, String addy) {
-                
+            public void insertDB(int id, String pswd, String fName, String lName, String em, String addy)
+            {
                 custID = id;
                 passwd = pswd;
                 firstName = fName;
@@ -115,21 +105,19 @@ public class Customer {
                     int n1 = stat.executeUpdate(sql);
                     if(n1==1)
                         System.out.println("INSERT Successful!!!");
-                    else
+                    else{
                         System.out.println("INSERT FAILED***********");
-                        c1.close();
+                        c1.close();}
                  }
             
                 catch(Exception e1){
-                     System.out.println(e1);
-             }
-                
-                }
+                     System.out.println(e1);}
+            }
             
-            public void deleteDB()  {
-                
-                try {   
-
+            public void deleteDB()
+            {
+                try
+                {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
                     c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");
@@ -148,8 +136,7 @@ public class Customer {
                 
                 }
                 catch(Exception e1){
-                    System.out.println(e1);
-            }
+                    System.out.println(e1);}
                 
             }
             
@@ -159,22 +146,22 @@ public class Customer {
                     
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1; 
-                    c1 = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");          
+                    c1 = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Justi\\OneDrive\\Documents\\GitHub\\Java\\Pet1\\Pet_Store\\Team2Database.accdb");
 
                     String sql = "UPDATE Customer SET custID = '"+ getcustID() +"', passwd = '"+ getpasswd() +"', firstName = '"+ getfirstName() +"', lastName = '"+ getlastName() +"', email = '"+ getemail() +"', address = '"+ getaddress() +"', WHERE custId = '"+ getcustID() +"'";
                     PreparedStatement pstat = c1.prepareStatement(sql);    
 
                     System.out.println(sql);                               
                     int n = pstat.executeUpdate(sql);
-                    if (n==1)
-                        System.out.println("UPDATE Successful!!!");
-                    else
+                    if (n==1){
+                        System.out.println("UPDATE Successful!!!");}
+                    else{
                          System.out.println("UPDATE FAILED***********");
-                         c1.close();
-        }
-            catch(Exception e1){
-            System.out.println(e1);
-        }
+                         c1.close();}
+                }
+                catch(Exception e1){
+                System.out.println(e1);
+                }
             }
            
             //Will display Database info if database connects correctly

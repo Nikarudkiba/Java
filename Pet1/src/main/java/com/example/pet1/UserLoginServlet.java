@@ -15,45 +15,45 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet(name = "/UserLoginServlet", value = "/UserLogin")
 
 public class UserLoginServlet extends HttpServlet {
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
-        try {
-            String id, pw;
-            id = request.getParameter("id");
-            pw = request.getParameter("password");
-
-            Customer c1 = new Customer();
-            c1.SelectDB(Integer.parseInt(id));
-
-            // Put Customer object in session
-            HttpSession ses1;
-            ses1 = request.getSession();
-            ses1.setAttribute("c1", c1);
-            System.out.println("Customer session");
-
-            // Put Inventory object in session
-            HttpSession ses2;
-            ses2 = request.getSession();
-            ses2.setAttribute("c1", c1);
-            System.out.println("Inventory session");
-
-            // if database password and id matches client password and id run the following code if not run else
-            if (c1.getpasswd().equals(pw) && c1.getcustID() == Integer.parseInt(id)) {
-                RequestDispatcher rd = request.getRequestDispatcher("/Checkout.html");
-                rd.forward(request, response);
-
-            } else {
-                RequestDispatcher rd = request.getRequestDispatcher("/ErrorPage.jsp");
-                rd.forward(request, response);
-            }
-        }
-
-        catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-        }
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws IOException {
+//        response.setContentType("text/html;charset=UTF-8");
+//        //PrintWriter out = response.getWriter();
+//
+//        try {
+//            String id, pw;
+//            id = request.getParameter("uname");
+//            pw = request.getParameter("psw");
+//
+//            Customer c1 = new Customer();
+//            c1.SelectDB(Integer.parseInt(id));
+//
+//            // Put Customer object in session
+//            HttpSession ses1;
+//            ses1 = request.getSession();
+//            ses1.setAttribute("c1", c1);
+//            System.out.println("Customer session");
+//
+//            // Put Inventory object in session
+//            HttpSession ses2;
+//            ses2 = request.getSession();
+//            ses2.setAttribute("c1", c1);
+//            System.out.println("Inventory session");
+//
+//            // if database password and id matches client password and id run the following code if not run else
+//            if (c1.getpasswd().equals(pw) && c1.getcustID() == Integer.parseInt(id)) {
+//                RequestDispatcher rd = request.getRequestDispatcher("/Pet1/Pet_Store/PetStore/Checkout.html");
+//                rd.forward(request, response);
+//                System.out.println("Redirecting");
+//            } else {
+//                RequestDispatcher rd = request.getRequestDispatcher("/ErrorPage.jsp");
+//                rd.forward(request, response);
+//            }
+//        }
+//
+//        catch (Exception e) {
+//            throw new RuntimeException(e);
+//        } finally {
+//        }
     }
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -72,7 +72,47 @@ public class UserLoginServlet extends HttpServlet {
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            processRequest(request, response);
+            //processRequest(request, response);
+
+            response.setContentType("text/html;charset=UTF-8");
+            //PrintWriter out = response.getWriter();
+
+            try {
+                String id, pw;
+                id = request.getParameter("uname");
+                pw = request.getParameter("psw");
+
+                Customer c1 = new Customer();
+                c1.SelectDB(Integer.parseInt(id));
+
+                // Put Customer object in session
+                HttpSession ses1;
+                ses1 = request.getSession();
+                ses1.setAttribute("c1", c1);
+                System.out.println("Customer session");
+
+                // Put Inventory object in session
+                HttpSession ses2;
+                ses2 = request.getSession();
+                ses2.setAttribute("c1", c1);
+                System.out.println("Inventory session");
+
+                // if database password and id matches client password and id run the following code if not run else
+                if (c1.getpasswd().equals(pw) && c1.getcustID() == Integer.parseInt(id)) {
+                    RequestDispatcher rd = request.getRequestDispatcher("/Pet1/Pet_Store/PetStore/Checkout.html");
+                    rd.forward(request, response);
+                    System.out.println("Redirecting");
+                } else {
+                    RequestDispatcher rd = request.getRequestDispatcher("/ErrorPage.jsp");
+                    rd.forward(request, response);
+                }
+            }
+
+            catch (Exception e) {
+                throw new RuntimeException(e);
+            } finally {
+            }
+
         }
 
         /**

@@ -1,5 +1,5 @@
 
-package com.example.pet1;
+package com.example.pet1.BusinessObjects;
 
 
 import java.sql.*;
@@ -93,7 +93,7 @@ public class OrderProcessingPerson {
 
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
-                    c1 = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");
+                    c1 = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Justi\\OneDrive\\Documents\\GitHub\\Java\\Pet1\\Pet_Store\\Team2Database.accdb");
 
                     Statement stat = c1.createStatement();
                     String sql = "Insert [Order Processing Person] values"
