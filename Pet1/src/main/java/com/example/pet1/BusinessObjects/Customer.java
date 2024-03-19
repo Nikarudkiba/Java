@@ -130,9 +130,8 @@ public class Customer {
                     if (n==1)
                         System.out.println("Delete Successful!");
                     else
-                        System.out.println("Delete Failed!");
-                
-                         c1.close();
+                    {System.out.println("Delete Failed!");
+                         c1.close();}
                 
                 }
                 catch(Exception e1){

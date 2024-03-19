@@ -102,10 +102,12 @@ public class Inventory {
                     System.out.println(sql);
                     int n1 = stat.executeUpdate(sql);
                     if(n1==1)
-                        System.out.println("INSERT Successful!!!");
+                    { System.out.println("INSERT Successful!!!");}
                     else
+                    {
                         System.out.println("INSERT FAILED***********");
                         c1.close();
+                    }
                  }
             
                 catch(Exception e1){
@@ -131,7 +133,6 @@ public class Inventory {
                         System.out.println("Delete Successful!");
                     else
                         System.out.println("Delete Failed!");
-                
                          c1.close();
                 
                 }
@@ -155,10 +156,10 @@ public class Inventory {
                     System.out.println(sql);                               
                     int n = pstat.executeUpdate(sql);
                     if (n==1)
-                        System.out.println("UPDATE Successful!!!");
+                    { System.out.println("UPDATE Successful!!!");}
                     else
-                         System.out.println("UPDATE FAILED***********");
-                         c1.close();
+                    {System.out.println("UPDATE FAILED***********");
+                         c1.close();}
         }
             catch(Exception e1){
             System.out.println(e1);

@@ -19,23 +19,19 @@ public class OrderProcessingPerson {
             public String Email;
             
             public OrderProcessingPerson() {
-    
                 ID = 0;
                 Passwd = "";
                 firstName = "";
                 lastName = "";
                 Email = "";
-                              
             }   
             
             public OrderProcessingPerson(int id, String pswd, String fName, String lName, String em) {
-                
                 ID = id;
                 Passwd = pswd;
                 firstName = fName;
                 lastName = lName;
                 Email = em;
-                
             }
             
             public void setID (int id) {ID = id;}
@@ -59,7 +55,6 @@ public class OrderProcessingPerson {
            
             public void SelectDB(int id) {
                 ID = id;
-                
                 try {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
@@ -71,26 +66,22 @@ public class OrderProcessingPerson {
                     Passwd = rs.getString(2);
                     firstName = rs.getString(3);
                     lastName = rs.getString(4);
-                    Email = rs.getString(5);                   		
-                
+                    Email = rs.getString(5);
                      c1.close();
-            }       
+                }
                 catch(Exception se) {
                     System.out.println(se);
-			}
-                }    
+			    }
+            }
             
             public void insertDB(int id, String pswd, String fName, String lName, String em, String addy) {
-                
                 ID = id;
                 Passwd = pswd;
                 firstName = fName;
                 lastName = lName;
                 Email = em;
-                
-                
-                try {   
 
+                try {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
                     c1 = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Justi\\OneDrive\\Documents\\GitHub\\Java\\Pet1\\Pet_Store\\Team2Database.accdb");
@@ -101,23 +92,22 @@ public class OrderProcessingPerson {
 
                     System.out.println(sql);
                     int n1 = stat.executeUpdate(sql);
-                    if(n1==1)
+                    if(n1==1) {
                         System.out.println("INSERT Successful!!!");
-                    else
+                    }
+                    else {
                         System.out.println("INSERT FAILED***********");
                         c1.close();
+                    }
                  }
-            
                 catch(Exception e1){
                      System.out.println(e1);
-             }
-                
                 }
+                
+            }
             
             public void deleteDB()  {
-                
-                try {   
-
+                try {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
                     c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");
@@ -127,18 +117,17 @@ public class OrderProcessingPerson {
                     int n = stat.executeUpdate(sql);
 
                 
-                    if (n==1)
+                    if (n==1) {
                         System.out.println("Delete Successful!");
-                    else
+                    }
+                    else {
                         System.out.println("Delete Failed!");
-                
-                         c1.close();
-                
+                        c1.close();
+                    }
                 }
                 catch(Exception e1){
                     System.out.println(e1);
-            }
-                
+                }
             }
             
             public void updateDB()  {
@@ -149,20 +138,23 @@ public class OrderProcessingPerson {
                     Connection c1; 
                     c1 = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");          
 
-                    String sql = "UPDATE [Order Processing Person] SET id = '"+ getID() +"', passwd = '"+ getPasswd() +"', firstName = '"+ getfirstName() +"', lastName = '"+ getlastName() +"', email = '"+ getEmail() +"', WHERE id = '"+ getID() +"'";
+                    String sql = "UPDATE [Order Processing Person] SET id = '" + getID() +"', passwd = '"+ getPasswd() +"', firstName = '"+ getfirstName() +"', lastName = '"+ getlastName() +"', email = '"+ getEmail() +"', WHERE id = '"+ getID() +"'";
                     PreparedStatement pstat = c1.prepareStatement(sql);    
 
                     System.out.println(sql);                               
                     int n = pstat.executeUpdate(sql);
-                    if (n==1)
+                    if (n==1) {
                         System.out.println("UPDATE Successful!!!");
+                    }
                     else
+                    {
                          System.out.println("UPDATE FAILED***********");
                          c1.close();
-        }
-            catch(Exception e1){
-            System.out.println(e1);
-        }
+                    }
+                 }
+                catch(Exception e1){
+                System.out.println(e1);
+                }
             }
             
             //Will display Database info if database connects correctly
@@ -178,7 +170,7 @@ public class OrderProcessingPerson {
             
             
             //Just to test and see of it connects to Database
-            public static void main(String args[]) {
+            public static void main(String [] args) {
                 
                 OrderProcessingPerson p1 = new OrderProcessingPerson();
                 p1.SelectDB(1);            
