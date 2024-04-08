@@ -64,10 +64,10 @@ public class Customer {
                 {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
-                    c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");
+                    c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/Justi/OneDrive/Documents/GitHub/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
 
                     Statement stmt = c1.createStatement();
-                    ResultSet rs = stmt.executeQuery("Select * from Customer where custID = " + id);
+                    ResultSet rs = stmt.executeQuery(String.format("Select * from Customer where custID = %d", id));
                     rs.next();
                     passwd = rs.getString(2);
                     firstName = rs.getString(3);
@@ -95,11 +95,10 @@ public class Customer {
 
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
-                    c1 = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");
+                    c1 = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/Justi/OneDrive/Documents/GitHub/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
 
                     Statement stat = c1.createStatement();
-                    String sql = "Insert Customer values"
-                         + "('" +getcustID()+"'," + "'"+getpasswd()+"'," + "'"+getfirstName()+"'," + "'"+getlastName()+"'," + "'"+getemail()+"'," + "'"+getaddress()+"')";
+                    String sql = String.format("Insert Customer values('%d','%s','%s','%s','%s','%s')", getcustID(), getpasswd(), getfirstName(), getlastName(), getemail(), getaddress());
 
                     System.out.println(sql);
                     int n1 = stat.executeUpdate(sql);
@@ -120,10 +119,10 @@ public class Customer {
                 {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
-                    c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");
+                    c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/Justi/OneDrive/Documents/GitHub/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
 
                     Statement stat = c1.createStatement(); 
-                    String sql = "Delete from Customer where custID = '" +getcustID()+"'";
+                    String sql = String.format("Delete from Customer where custID = '%d'", getcustID());
                     int n = stat.executeUpdate(sql);
 
                 
@@ -147,7 +146,7 @@ public class Customer {
                     Connection c1; 
                     c1 = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Justi\\OneDrive\\Documents\\GitHub\\Java\\Pet1\\Pet_Store\\Team2Database.accdb");
 
-                    String sql = "UPDATE Customer SET custID = '"+ getcustID() +"', passwd = '"+ getpasswd() +"', firstName = '"+ getfirstName() +"', lastName = '"+ getlastName() +"', email = '"+ getemail() +"', address = '"+ getaddress() +"', WHERE custId = '"+ getcustID() +"'";
+                    String sql = String.format("UPDATE Customer SET custID = '%d', passwd = '%s', firstName = '%s', lastName = '%s', email = '%s', address = '%s', WHERE custId = '%d'", getcustID(), getpasswd(), getfirstName(), getlastName(), getemail(), getaddress(), getcustID());
                     PreparedStatement pstat = c1.prepareStatement(sql);    
 
                     System.out.println(sql);                               
@@ -164,22 +163,22 @@ public class Customer {
             }
            
             //Will display Database info if database connects correctly
-            public void display(){
-                
-                System.out.println("Customer ID = " + custID);
-                System.out.println("Password = " + passwd);
-                System.out.println("First Name = " + firstName);
-                System.out.println("Last Name = " + lastName);
-                System.out.println("Email = " + email);
-                System.out.println("Address = " + address);
-            }
+//            public void display(){
+//
+//                System.out.println("Customer ID = " + custID);
+//                System.out.println("Password = " + passwd);
+//                System.out.println("First Name = " + firstName);
+//                System.out.println("Last Name = " + lastName);
+//                System.out.println("Email = " + email);
+//                System.out.println("Address = " + address);
+//            }
             
             
             //Just to test and see of it connects to Database
-            public static void main(String args[]) {
+            public static void main(String[] args) {
                 
-                Customer c1 = new Customer();
-                c1.SelectDB(1001);            
-                c1.display();
+                //Customer c1 = new Customer();
+                //c1.SelectDB(1001);
+                //c1.display();
             }
 }

@@ -117,29 +117,26 @@ public class Inventory {
                 }
             
             public void deleteDB()  {
-                
                 try {   
 
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
-                    c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");
+                    c1=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Justi\\OneDrive\\Documents\\GitHub\\Java\\Pet1\\src\\main\\java\\com\\example\\pet1\\Team2Database.accdb");
 
                     Statement stat = c1.createStatement(); 
-                    String sql = "Delete from Inventory where ItemID = '" +getItemID()+"'";
+                    String sql = String.format("Delete from Inventory where ItemID = '%d'", getItemID());
                     int n = stat.executeUpdate(sql);
 
                 
                     if (n==1)
                         System.out.println("Delete Successful!");
-                    else
+                    else{
                         System.out.println("Delete Failed!");
-                         c1.close();
-                
+                         c1.close();}
                 }
                 catch(Exception e1){
                     System.out.println(e1);
-            }
-                
+                 }
             }
             
             public void updateDB()  {
@@ -150,7 +147,7 @@ public class Inventory {
                     Connection c1; 
                     c1 = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/jose9/OneDrive/Documents/SCHOOLSTUFF!!!!/CIST 2931 Advance System Project/Team2Database.accdb");          
 
-                    String sql = "UPDATE Inventory SET ItemID = '"+ getItemID() +"', ItemName = '"+ getItemName() +"', Price = '"+ getPrice() +"', Category = '"+ getCategory() +"', Quantity = '"+ getQuantity() +"'";
+                    String sql = String.format("UPDATE Inventory SET ItemID = '%d', ItemName = '%s', Price = '%s', Category = '%s', Quantity = '%d'", getItemID(), getItemName(), getPrice(), getCategory(), getQuantity());
                     PreparedStatement pstat = c1.prepareStatement(sql);    
 
                     System.out.println(sql);                               
@@ -159,11 +156,11 @@ public class Inventory {
                     { System.out.println("UPDATE Successful!!!");}
                     else
                     {System.out.println("UPDATE FAILED***********");
-                         c1.close();}
-        }
+                        c1.close();}
+                }
             catch(Exception e1){
             System.out.println(e1);
-        }
+            }
             }
             
             
