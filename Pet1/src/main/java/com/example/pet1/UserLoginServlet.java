@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import com.example.pet1.BusinessObjects.Customer;
 import jakarta.servlet.http.HttpSession;
+
+import static java.lang.Integer.valueOf;
 //import jakarta.servlet.annotation.*;
 //import org.jetbrains.annotations.NotNull;
 
@@ -40,27 +42,34 @@ public class UserLoginServlet extends HttpServlet {
 
             //System.out.println("Customer retrieved = " + id);
             Customer c1 = new Customer();
-            c1.SelectDB(Integer.parseInt(id));
+            //c1.SelectDB(Integer.parseInt(id));
+            //c1.SelectDB(Integer.valueOf(id));
+            c1.SelectDB(1001);
 
             out.println("<html><body>");
-            out.println("<h1>" + "First Name = " + c1.getfirstName() +"</h1>");
-            out.println("</body></html>");
+            //out.println("<h1>" + "ID = " + c1.getcustID() +"</h1>");//---works
+            //out.println("<h1>" + "Pass = " + c1.getpasswd() +"</h1>"); //---not
+            //out.println("<h1>" + "FName = " + c1.firstName +"</h1>");  //---not
+            //out.println("<h1>" + "Lname = " + c1.getlastName() +"</h1>");//-not working
+            //out.println("</body></html>");
 
-            System.out.println("First Name = " + c1.getfirstName());
+            //System.out.println("First Name = " + c1.getfirstName());
 
-            if (password.equals(c1.getpasswd())) {             //Check to see if Passwords match with database
 
-                session.setAttribute("c1", c1);
-
-                System.out.println("Customer c1 object has been added");
-
-                RequestDispatcher rd = request.getRequestDispatcher("/CustomerInfo");
-                rd.forward(request, response);      //Goes to dentist info page if all is good
-
-            } else {
-                RequestDispatcher rd = request.getRequestDispatcher("CustomerInfo.jsp");
-                rd.forward(request, response);          //Error page if it does not match
-            }
+            //---not even running here yet---
+//            if (password.equals(c1.getpasswd())) {             //Check to see if Passwords match with database
+//
+//                session.setAttribute("c1", c1);
+//
+//                System.out.println("Customer c1 object has been added");
+//
+//                RequestDispatcher rd = request.getRequestDispatcher("CustomerInfo.jsp");
+//                rd.forward(request, response);      //Goes to dentist info page if all is good
+//
+//            } else {
+//                RequestDispatcher rd = request.getRequestDispatcher("CustomerInfo.jsp");
+//                rd.forward(request, response);          //Error page if it does not match
+//            }
         } catch (NullPointerException e) {
             System.out.println(e);
         }

@@ -1,5 +1,6 @@
 package com.example.pet1.BusinessObjects;
 
+import java.io.File;
 import java.sql.*;
 
 /*****************************
@@ -66,14 +67,19 @@ public class Customer {
                     Connection c1;
                     c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/Justi/OneDrive/Documents/GitHub/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
 
+                    File f = new File("C:/Users/Justi/OneDrive/Documents/GitHub/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
+                    if(!f.exists()) {
+                        System.out.println("File not Found");
+                    }
+
                     Statement stmt = c1.createStatement();
                     ResultSet rs = stmt.executeQuery(String.format("Select * from Customer where custID = %d", id));
                     rs.next();
-                    passwd = rs.getString(2);
-                    firstName = rs.getString(3);
-                    lastName = rs.getString(4);
-                    email = rs.getString(5);
-                    address = rs.getString(6);
+                    setpasswd(rs.getString(1));
+                    setfirstName( rs.getString(2));
+                    lastName = rs.getString(3);
+                    email = rs.getString(4);
+                    address = rs.getString(5);
 		
                 
                      c1.close();
@@ -163,22 +169,22 @@ public class Customer {
             }
            
             //Will display Database info if database connects correctly
-//            public void display(){
-//
-//                System.out.println("Customer ID = " + custID);
-//                System.out.println("Password = " + passwd);
-//                System.out.println("First Name = " + firstName);
-//                System.out.println("Last Name = " + lastName);
-//                System.out.println("Email = " + email);
-//                System.out.println("Address = " + address);
-//            }
+            public void display(){
+
+                System.out.println("Customer ID = " + getcustID());
+                System.out.println("Password = " + getpasswd());
+                System.out.println("First Name = " + getfirstName());
+                System.out.println("Last Name = " + getlastName());
+                System.out.println("Email = " + getemail());
+                System.out.println("Address = " + getaddress());
+            }
             
             
             //Just to test and see of it connects to Database
             public static void main(String[] args) {
                 
-                //Customer c1 = new Customer();
-                //c1.SelectDB(1001);
-                //c1.display();
+                Customer c1 = new Customer();
+                c1.SelectDB(1001);
+                c1.display();
             }
 }
