@@ -22,7 +22,7 @@
 
 <%--<a href="hello-servlet">Hello Servlet</a>--%>
 
-<form action="UserLoginServlet" method="post">
+<form action="hello-servlet" method="post">
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
     <label for="psw"><b>Password</b></label>

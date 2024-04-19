@@ -65,9 +65,9 @@ public class Customer {
                 {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection c1;
-                    c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/Justi/OneDrive/Documents/GitHub/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
+                    c1=DriverManager.getConnection("jdbc:ucanaccess://C:/Users/Justi/source/repos/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
 
-                    File f = new File("C:/Users/Justi/OneDrive/Documents/GitHub/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
+                    File f = new File("C:/Users/Justi/source/repos/Java/Pet1/src/main/java/com/example/pet1/Team2Database.accdb");
                     if(!f.exists()) {
                         System.out.println("File not Found");
                     }

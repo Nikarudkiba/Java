@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import com.example.pet1.BusinessObjects.Customer;
@@ -32,24 +33,27 @@ public class UserLoginServlet extends HttpServlet {
             String id = request.getParameter("uname");
             String password = request.getParameter("psw");
 
-//           System.out.println("ID : " + id);
-//           System.out.println("Password: " + password);
-//            servletContext.log("This is a message printed to the server log.");
+//            out.println("<html><body>");
+//            out.println("<h1>" + "ID = " + id +"</h1>");//---works
+//            out.println("<h1>" + "Pass = " + password +"</h1>"); //---not
 
 
-            HttpSession session;
-            session = request.getSession(true);
+
 
             //System.out.println("Customer retrieved = " + id);
             Customer c1 = new Customer();
             //c1.SelectDB(Integer.parseInt(id));
             //c1.SelectDB(Integer.valueOf(id));
             c1.SelectDB(1001);
+            System.out.println("Testing");
 
-            out.println("<html><body>");
-            //out.println("<h1>" + "ID = " + c1.getcustID() +"</h1>");//---works
-            //out.println("<h1>" + "Pass = " + c1.getpasswd() +"</h1>"); //---not
-            //out.println("<h1>" + "FName = " + c1.firstName +"</h1>");  //---not
+            HttpSession session;
+            session = request.getSession();
+
+//            out.println("<html><body>");
+//            out.println("<h1>" + "ID = " + c1.getcustID() +"</h1>");//---works
+//            out.println("<h1>" + "Pass = " + c1.getpasswd() +"</h1>"); //---not
+            out.println("<h1>" + "FName = " + c1.getfirstName() +"</h1>");  //---not
             //out.println("<h1>" + "Lname = " + c1.getlastName() +"</h1>");//-not working
             //out.println("</body></html>");
 
@@ -63,8 +67,8 @@ public class UserLoginServlet extends HttpServlet {
 //
 //                System.out.println("Customer c1 object has been added");
 //
-//                RequestDispatcher rd = request.getRequestDispatcher("CustomerInfo.jsp");
-//                rd.forward(request, response);      //Goes to dentist info page if all is good
+                RequestDispatcher rd = request.getRequestDispatcher("CustomerInfo.jsp");
+                rd.forward(request, response);      //Goes to dentist info page if all is good
 //
 //            } else {
 //                RequestDispatcher rd = request.getRequestDispatcher("CustomerInfo.jsp");
