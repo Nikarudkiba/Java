@@ -82,7 +82,7 @@ public class Student {
             throw new RuntimeException(e);
         }
     }
-    public void inertBD(int Sid, String FirstName,String LastName,String Adrs,String Cty,String St,int zip,String Em,Double gpa {
+    public void inertBD(int Sid, String FirstName,String LastName,String Adrs,String Cty,String St,int zip,String Em,double gpa) {
         SID=Sid;FName=FirstName;LName=LastName;Address=Adrs;City=Cty;State=St;Zip=zip;email=Em;Gpa=gpa;
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
